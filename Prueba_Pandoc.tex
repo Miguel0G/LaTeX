@@ -1,0 +1,2348 @@
+
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{multirow}
+\usepackage{calc,caption,geometry}
+\usepackage{titlesec,fancyhdr,lastpage,datetime} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+\setcounter{secnumdepth}{3}
+
+\pagestyle{fancy}
+
+
+%Encabezado del documento
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{
+  \begin{tabular}{|p{1.5cm}|p{8.5cm}|p{2cm}|}
+    \hline
+    & \textbf{PROGRAMA DE MANTENIMIENTO AERONAVE
+    REF: RTS PM 206L4} & ED:03.R14\\
+    \hline
+    \end{tabular}
+}
+
+\newdateformat{mydate}{\THEDAY \space - \THEMONTH \space - \THEYEAR}
+
+
+
+%Pie de página del documento
+
+\fancyfoot[C]{
+\begin{tabular}{p{6cm} p{4cm} p {2cm}}
+
+Fecha & &Página\\
+\mydate\today & &\thepage / \pageref{LastPage} \\
+\end{tabular}
+}
+
+\begin{document}
+
+
+\emph{\textbf{PROGRAMA DE MANTENIMIENTO}}
+
+\emph{\textbf{HELICÓPTERO BELL 206L-4}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3036}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6964}}@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Propietario / Operador: & \emph{Rotorsun S.L.} \\
+\hline
+Dirección del Propietario / Operador: & \emph{Atalaya de Tébar s/n --
+Apartado de correos No 94,. 30880 Aguilas (Murcia)} \\
+\hline
+Telf., fax, e-mail: & \emph{T.968411446, F.968414463,
+\href{mailto:mantenimiento@rotorsun.com}{\nolinkurl{mantenimiento@rotorsun.com}}} \\
+\hline
+Matrícula A/C: & \emph{EC-JKG (s/n 52068)} \\
+\hline
+Aeronave: & \emph{Bell, 206L-4} \\
+\hline
+Motor: & \emph{Rolls-Royce, 250-C30P} \\
+\hline
+Hélice: & n/a \\
+\hline
+CAMO\emph{:} & \emph{Rotorsun S.L.} \\
+\hline
+Dirección CAMO\emph{:} & \emph{Atalaya de Tébar s/n -- Apartado de
+correos No 94,. 30880 Aguilas (Murcia)} \\
+\hline
+Telf., fax, e-mail\emph{:} & \emph{T.968411446, F.968414463,
+\href{mailto:mantenimiento@rotorsun.com}{\nolinkurl{mantenimiento@rotorsun.com}}} \\
+\end{longtable}
+
+\newpage
+
+\textbf{\hfill\break
+}
+
+\begin{longtable}[]{@{}|p{1cm}|p{2cm}|p{2cm}|p{7cm}|@{}}
+\hline
+\multicolumn{4}{@{}l@{}}{
+\textbf{REGISTRO DE EDICIONES / REVISIONES}}\\
+\hline
+\fontsize{4.5}{6}\selectfont\textbf{ÍNDICE DE EDICIÓN /REVISIÓN} & \fontsize{4.5}{6}\selectfont\textbf{FECHA DE PUBLICACIÓN} &
+\fontsize{4.5}{6}\selectfont\textbf{FECHA DE EFECTIVIDAD} & \fontsize{4.5}{6}\selectfont\textbf{MOTIVO CAMBIO} \\
+\hline
+03.S0 & 12-03-2013 & 15 --07-- 2013 & Actualizado capítulo 5.
+Actualizada documentación. Revisado para cumplimiento AOC \\
+\hline
+03.R1 & 01-11-2013 & 01-11-2013 & Actualización de modificaciones.
+Actualización de revisiones. \\
+\hline
+03.R2 & 20-12-2013 & 20-12-2013 & Actualización de documentación.
+Actualización de modificaciones. \\
+\hline
+03.R3 & 10-09-2014 & 11-09-2014 & Revisión de formato, cambio de gerente
+CAMO, actualización de modificaciones, documentación de referencia y
+tareas.\\
+\hline
+03.R4 & 13-01-2015 & 13-01-2015 & Actualización de documentación. Se
+incluye soporte \emph{Airfilm Camera.} Cancelados Anexos III y IV \\
+\hline
+03.R5 & 15-07-2015 & 15-07-2015 & Revisados listados de directivas y
+modificaciones. \\
+\hline
+03.R6 & 05-05-2016 & 05-05-2016 & Revisada documentación de referencia y
+listado de directivas \\
+\hline
+03.S7 & 30-01-2017 & 26-04-2017 & Actualizado procedimiento de
+ampliaciones puntuales de acuerdo con G-DSM-PMTO-02 3.0. Actualizada
+doc. De referencia \\
+\hline
+03.R8 & 18-07-2019 & 23-07-2019 & Actualizada doc. de referencia.
+Revisado listado de modificaciones. Corregidas erratas \\
+\hline
+03.R9 & 24-01-2020 & 27-01-2020 & Actualizada documentación \\
+\hline
+03.R10 & 30-01-2020 & 30-03-2020 & Revisada y actualizada documentación
+y el listado de modificaciones. Incluidos Anexos de inspección.~ \\
+\hline
+03.R11 & 20-01-2021 & 20-01-2021 & Actualizada doc. de referencia.
+Revisado listado de modificaciones \\
+\hline
+03.R12 & 11-10-2021 & 13-10-2021 & Actualizada documentación base. Se
+clarifica la utilización de la aeronave \\
+\hline
+03.R13 & 19-09-2022 & 19-09-2022 & Actualizada documentación. Se
+eliminan las inspecciones de FACET por duplicidad con las incluidas en
+el manual del motor. Se incluye AD CF-2022-33 \\
+\hline
+03.R14 & 09-01-2023 & 16-01-2023 & Actualizada documentación (Revisión
+26 al MM). Incluida nueva batería Concorde \\
+\hline
+03.R15 & 04-08-2023 & & Actualizada documentación cargo hook, eliminada
+inspección mensual \\
+\hline
+\end{longtable}
+
+\newpage
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1233}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1268}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1233}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1268}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1233}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1268}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1233}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1265}}|@{}}
+\hline
+\multicolumn{8}{@{}l@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{REGISTRO DE PÁGINAS EFECTIVAS Y SUS EDICIONES}
+\end{minipage}} \\
+\hline
+
+\textbf{Página} & \textbf{Ed/Rev} & \textbf{Página} & \textbf{Ed/Rev} &
+\textbf{Página} & \textbf{Ed/Rev} & \textbf{Página} & \textbf{Ed/Rev} \\
+\hline
+1 & \textbf{03.S0} & 6 & \textbf{03.R15} & 11 & \textbf{03.R14} & 16 &
+\textbf{03.R3} \\
+\hline
+2 & \textbf{03.R15} & 7 & \textbf{03.R5} & 12 & \textbf{03.R12} & 17 &
+\textbf{03.R9} \\
+\hline
+2A & \textbf{03.R15} & 8 & \textbf{03.R1} & 13 & \textbf{03.R10} & 18 &
+\textbf{03.R13} \\
+\hline
+3 & \textbf{03.R4} & 9 & \textbf{03.R1} & 14 & \textbf{03.R14} & & \\
+\hline
+4 & \textbf{03.R14} & 10 & \textbf{03.R8} & 15 & \textbf{03.R13} & & \\
+\hline
+5 & \textbf{03.R14} & 10A & \textbf{03.R12} & 15A & \textbf{03.R15} &
+& \\
+\hline
+\end{longtable}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2136}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5517}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1253}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1195}}|@{}}
+\hline
+\multicolumn{4}{@{}l@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{ANEXOS}
+\end{minipage}} \\
+\hline
+\textbf{Código anexo} & \textbf{Título} & \textbf{Nº Páginas} &
+\textbf{Ed/Rev} \\
+\hline
+Anexo I & Inspección Prevuelo & 2 & \textbf{03.R13} \\
+\hline
+Anexo II & Inspección Semanal & 1 & \textbf{03.R15} \\
+\hline
+Anexo III & Inspección 100h/12m & 31 & \textbf{03.R13} \\
+\hline
+Anexo IV & Inspecciones Anuales & 11 & \textbf{03.R13} \\
+\hline
+Anexo V & Mantenimiento adicional & 25 & \textbf{03.R13} \\
+\hline
+
+\end{longtable}
+
+\newpage
+
+\textbf{\ul{CONTENIDO}}
+
+\protect\hyperlink{enmiendas-y-control-del-programa-de-mantenimiento}{\textbf{1
+ENMIENDAS Y CONTROL DEL PROGRAMA DE MANTENIMIENTO}}
+
+\protect\hyperlink{preuxe1mbulo}{\textbf{2 PREÁMBULO}}
+
+\protect\hyperlink{_Toc408910587}{2.1 Declaración firmada del
+Propietario / Operador / CAMO}
+
+\protect\hyperlink{aplicabilidad}{2.2 Aplicabilidad}
+
+\protect\hyperlink{base-del-programa-de-mantenimiento}{\textbf{3 BASE DEL
+PROGRAMA DE MANTENIMIENTO}}
+
+\protect\hyperlink{responsabilidades-y-procedimientos}{\textbf{4
+RESPONSABILIDADES Y PROCEDIMIENTOS}}
+
+\protect\hyperlink{responsabilidades-del-propietario-operador}{4.1
+Responsabilidades del Propietario / Operador}
+
+\protect\hyperlink{certificado-de-aptitud-para-el-servicio-crs}{4.2
+Certificado de aptitud para el servicio (CRS)}
+
+\protect\hyperlink{responsabilidad-del-personal-certificador}{4.3
+Responsabilidad del personal certificador}
+
+\protect\hyperlink{realizaciuxf3n-del-mantenimiento}{4.4 Realización del
+mantenimiento}
+
+\protect\hyperlink{definiciones}{4.5 Definiciones}
+
+\protect\hyperlink{intervalos-de-inspecciuxf3n}{\textbf{5 INTERVALOS DE
+INSPECCIÓN}}
+
+\protect\hyperlink{ampliaciones-a-los-intervalos-de-inspecciuxf3n-tareas-de-mantenimiento}{5.1
+Ampliaciones a los intervalos de inspección / tareas de mantenimiento}
+
+\protect\hyperlink{_Toc408910598}{5.2 Intervalos de inspección}
+
+\protect\hyperlink{inspecciuxf3n-prevuelo}{\textbf{6 INSPECCIÓN PREVUELO}}
+
+\protect\hyperlink{inspecciuxf3n-prevuelo-realizada-por-el-piloto}{6.1
+Inspección prevuelo realizada por el piloto}
+
+\protect\hyperlink{inspecciuxf3n-prevuelo-realizada-por-personal-de-mantenimiento}{6.2
+Inspección prevuelo realizada por personal de mantenimiento}
+
+\protect\hyperlink{mantenimiento-programado}{\textbf{7 MANTENIMIENTO PROGRAMADO}}
+
+\protect\hyperlink{tareas-y-periodos}{7.1 Tareas y periodos}
+
+\protect\hyperlink{peruxedodos-de-inspecciuxf3n-limpieza-engrase-y-lubricaciuxf3n-relleno-ajuste-y-prueba-de-componentes}{7.2
+Períodos de inspección, limpieza, engrase y lubricación, relleno, ajuste
+y prueba de componentes}
+
+\protect\hyperlink{inspecciones-de-envejecimiento-de-sistemas}{7.3
+Inspecciones de envejecimiento de sistemas}
+
+\protect\hyperlink{programa-de-inspecciuxf3n-estructural}{7.4 Programa
+de Inspección estructural}
+
+\protect\hyperlink{periodos-de-overhaul-y-sustituciuxf3n-de-partes}{7.5
+Periodos de overhaul y sustitución de partes}
+
+\protect\hyperlink{componentes-de-vida-luxedmite-requisitos-de-mantenimiento-de-certificaciuxf3n-cmrs-airworthiness-limitations-y-directivas-de-aeronavegabilidad-ads}{7.6
+Componentes de vida límite, Requisitos de mantenimiento de certificación
+(CMR's), Airworthiness Limitations y Directivas de Aeronavegabilidad
+(AD's)}
+
+\protect\hyperlink{_Toc408910609}{\textbf{ANEXO I -- INSPECCIÓN PREVUELO}}
+
+
+
+\hypertarget{enmiendas-y-control-del-programa-de-mantenimiento}{%
+\section{ENMIENDAS Y CONTROL DEL PROGRAMA DE
+MANTENIMIENTO}\label{enmiendas-y-control-del-programa-de-mantenimiento}}
+
+Cuando sea necesario, se realizarán enmiendas a este programa de
+mantenimiento registrándose debidamente en la parte inicial del
+documento. Estas enmiendas podrán incluir cambios en las recomendaciones
+del titular del certificado de tipo, modificaciones, experiencia en
+servicio, cambios que afecten al contenido o requisitos de la autoridad
+competente.
+
+Este Programa de mantenimiento se actualizará con la última edición /
+revisión de los manuales y documentación técnica detallada. Cuando una
+nueva edición / revisión de la documentación suponga una modificación de
+este programa se procederá a enmendar el mismo de acuerdo con los
+procedimientos aprobados en el CAME. El responsable de la revisión y
+enmienda de este programa será el \emph{Responsable de Aeronavegabilidad
+de la organización Rotorsun S.L. (CAMO ES.CAMO.013)}
+
+Una vez aprobada dicha enmienda del programa, se enviará una copia
+actualizada a cada una de las localizaciones donde se dispone de copia
+del mismo:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.7175}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2284}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1424}}@{}}
+\textbf{\textbf{TITULAR}} & \textbf{\textbf{COMPAÑÍA}} &
+\textbf{\textbf{PLAZO}} \\
+\hline
+1 Responsable Mantenimiento de la CAMO & ROTORSUN & 2 días \\
+2 Responsable Mantenimiento del CM Part 145 & ROTORSUN & 2 días \\
+3 OSV Nº3 & AESA & 2 días \\
+\end{longtable}
+
+\hypertarget{preuxe1mbulo}{%
+\section{PREÁMBULO}\label{preuxe1mbulo}}
+
+\hypertarget{declaraciuxf3n-firmada-del-propietario-operador-camo}{%
+\subsection{Declaración firmada del Propietario / Operador /
+CAMO}\label{declaraciuxf3n-firmada-del-propietario-operador-camo}}
+
+Como \emph{Gerente de la CAMO ES.CAMO.013},
+
+DECLARO:
+
+La/s aeronave/s referenciada/s en el presente Programa de mantenimiento
+será/n mantenida/s de acuerdo a los estándares indicados en el mismo en
+su última revisión aprobada y actualizada de acuerdo con lo estipulado
+en los puntos de la Parte M, M.A.302 y Apéndice I a AMC M.A.302 y AMC
+M.B.301 (b) así como los requisitos y condiciones adicionales que desde
+la Agencia Estatal de Seguridad Aérea (AESA) se estimen necesarios, y se
+procederá a su revisión y actualización correspondiente cuando los
+elementos de referencia de desarrollo del Programa varíen.
+
+Para la preparación de este Programa, se han seguido:
+
+• Las recomendaciones actualizadas del titular del certificado de tipo
+de la/s aeronave/s, motores y componentes.
+
+• Las Directivas de Aeronavegabilidad emitidas por el Estado del titular
+del certificado de tipo (aeronave o componente), por el Estado de
+registro del operador y por el Estado de registro de matrícula.
+
+• Cualquier disposición aplicable emitida por la AESA y/o EASA,
+
+• Tareas de mantenimiento adicionales derivadas de modificaciones,
+reparaciones o STC's aprobados incorporados a la aeronave, motor, hélice
+y componentes.
+
+De acuerdo con la Parte M, M.A.302(a), los datos contenidos en Programa
+de Mantenimiento se revisarán anualmente para garantizar la validez
+continuada, teniendo en cuenta la experiencia en servicio.
+
+que estos procedimientos no eximen de la necesidad de cumplir con
+cualquier reglamentación nueva o modificada publicada por EASA o por la
+AESA, cuando estas nuevas normas o enmiendas entren en conflicto con
+estos procedimientos.
+
+Fdo: Nacho Gracia
+
+Cargo: \emph{Gerente}
+
+Fecha: 09-01-2023
+
+\hypertarget{section-1}{%
+\subsection*{}\label{section-1}}
+\addcontentsline{toc}{subsection}{}
+
+\hypertarget{aplicabilidad}{%
+\subsection{Aplicabilidad}\label{aplicabilidad}}
+
+Este Programa de Mantenimiento es aplicable a la/s aeronave/s
+\emph{gestionadas por la organización ES.MG.101 y} referenciadas \emph{a
+continuación}:
+
+Matrícula: EC-JKG
+
+Célula: Bell, 206 L-4 s/n 52068
+
+Motores: Rolls-Royce, 250-C30P s/n CAE-895749
+
+\newpage
+
+\hypertarget{base-del-programa-de-mantenimiento}{%
+\section{BASE DEL PROGRAMA DE
+MANTENIMIENTO}\label{base-del-programa-de-mantenimiento}}
+
+Este Programa de Mantenimiento está de acuerdo con:
+
+\begin{itemize}
+\item
+  Instrucciones para el mantenimiento de la aeronavegabilidad emitidas
+  por el titular del certificado de tipo, por el titular del certificado
+  de tipo suplementario, por organizaciones aprobadas para el diseño de
+  reparaciones mayores, y en general cualquier otra aprobación relevante
+  emitida de acuerdo con el Reglamento (EC) 1702/2003 y su anexo (Parte
+  21), de aeronave, motores y hélices:
+
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    \textbf{Aeronave/s:}
+
+    \begin{itemize}
+    \item[-]
+      \begin{quote}
+      \textbf{Aircraft Maintenance Manual (AMM):} BHT-206L4-MM, Rev. 26,
+      30-09-2022.
+      \end{quote}
+    \end{itemize}
+
+  
+  \item  
+    \textbf{Motor/es:}
+    \begin{itemize}
+    \item[-]
+      \begin{quote}
+      \textbf{Maintenance Manual}: RR Operation \& Maintenance Manual Ed 6
+      (01-07-92) Rev. 26 (15-11-19) Incluye revisions temporales E6R26-72-1
+      y E6R26-72-2
+      \end{quote}
+    \end{itemize}
+  \end{enumerate}
+\item
+  \textbf{Directivas de Aeronavegabilidad} aplicables a la/s
+  aeronave/s referenciadas en este documento, así como a motores y
+  resto de elementos instalados en las mismas, emitidas por el Estado
+  del titular del Certificado de Tipo, por el Estado del registro del
+  operador y por el Estado de Registro de Matrícula.
+
+  \begin{quote}
+  El listado de directivas de aeronavegabilidad aplicables se detalla en
+  el punto 7.6 del presente documento.
+  \end{quote}
+
+  \newpage
+
+\item
+  Otras instrucciones aplicables aceptadas por AESA y/o por EASA.
+\end{itemize}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3246}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1904}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 3\tabcolsep) * \real{0.2652}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2798}}|@{}}
+
+\bottomrule\noalign{}
+\hline
+\textbf{Component} & \textbf{Issued by} & \textbf{Document} & \textbf{Date of issue, approval status, revision status *} \\
+\hline
+\emph{High Skid -- Skidtube}
+\emph{High Skid - Crosstube} & \emph{Aeronautical Accesories} &
+\emph{AA-01145}
+
+\emph{AA-01149} & \emph{issue F dated 07-02-2022}
+
+\emph{issue B dated 05-10-2010} \\
+\hline
+\emph{Flitestep} & \emph{Aeronautical Acc.} & \emph{AA-01161} &
+\emph{issue B dated 01-03-2006} \\
+\hline
+\emph{Cargo mirror} & \emph{Aeronautical Acc.} & \emph{AA-00121} &
+\emph{issue A dated 15-01-2010} \\
+\hline
+\emph{Folding maintenance step} & \emph{Aeronautical Acc.} &
+\emph{AA-00127} & \emph{issue 0 dated 11-10-2000} \\
+\hline
+\emph{Step handle kit} & \emph{Aeronautical Acc.} & \emph{AA-00124} &
+\emph{issue 0 dated 09-10-2000} \\
+\hline
+\emph{Baggage door ret. strap} & \emph{Aeronautical Acc.} &
+\emph{AA-87041} & \emph{issue J dated 01-08-2001} \\
+\hline
+\emph{Spacemaker} & \emph{Aeronautical Acc.} & \emph{AA-88087} &
+\emph{issue M dated 07-04-2014} \\
+\hline
+\emph{Tail Rotor Pedal Lockout kit} & \emph{Aeronautical Acc} &
+\emph{AA-99032} & \emph{Issue E dated 26-03-2012} \\
+\hline
+\emph{Soporte Airfilm Camera} & \emph{Airfilm Camera Sys.} &
+\emph{AF-G1-006}
+
+\emph{G1-206-005} & \emph{issue D dated 10-04-2009}
+
+\emph{issue A dated 13-07-2006} \\
+\hline
+\emph{Equipo de limpieza SLAAP}
+
+\emph{ASW-AP001L} & \emph{APA} & \emph{INAER.M12/040/25-ICA-2}
+
+\emph{INAER.M12/040/25-FMS-2} & \emph{issue 1 dated 09-08-2012}
+
+\emph{issue 2 dated 09-08-2012} \\
+\hline
+\emph{Radio sepura} & \emph{APA} & \emph{ICA-109095} & \emph{issue 0
+dated 20-01-2016} \\
+\hline
+\emph{Megafonía} & \emph{APA} & \emph{ICA-109096} & \emph{issue 0 dated
+20-01-2016} \\
+\hline
+\emph{Espumógeno} & \emph{APA} & \emph{ICA-109097} & \emph{issue 0 dated
+20-01-2016} \\
+\hline
+\emph{Bluetooth} & \emph{APA} & \emph{ICA-109098} & \emph{issue 0 dated
+20-01-2016} \\
+\hline
+\emph{Portable GPS Garmin} & \emph{APA} & \emph{ICA-109155} &
+\emph{issue 0 dated 20-06-2018} \\
+\hline
+\emph{Dual controls} & \emph{Bell Helicopter} & \emph{206-SI-2024} &
+\emph{issue 1 dated 31-08-2012} \\
+\hline
+\emph{Particle separator} & \emph{Bell Helicopter} & \emph{206-SI-2038}
+& \emph{issue 0 dated 30-01-2017} \\
+\hline
+\emph{Rotor brake} & \emph{Bell Helicopter}
+
+\emph{Northwest} & \emph{206-SI-2044}
+
+\emph{B0223-OM (BHT 206L-CR\&O-V)} & \emph{issue 2 dated 24-07-2019}
+\emph{issue G dated 24-02-2010} \\
+\hline
+\emph{Flight instruments} & \emph{Bell Helicopter} & \emph{206-SI-2047}
+& \emph{issue 0 dated 08-06-2011} \\
+\hline
+\emph{Cargo Hook} & \emph{Bell Helicopter}
+
+\emph{Onboard systems}
+
+\emph{Onboard systems} & \emph{BHT-206-SI-2012}
+
+\emph{CMM 122-001-00}
+
+\emph{FMS 121-036-00} & \emph{issue 0 dated 31-07-2013}
+\emph{issue} \emph{25} \emph{dated} \emph{12-04-2023}
+
+\emph{issue 0 dated 07-09-2006} \\
+\hline
+\emph{Wirestrike} & \emph{Bristol Aerospace} & \emph{ER 80020/W} &
+\emph{issue 0 dated 05-11-1986} \\
+\hline
+\emph{Interior trim panels} & \emph{Dart} & \emph{ICA-D407-781} &
+\emph{issue 4 dated 28-10-2010} \\
+\hline
+\emph{Apertura de bambi}
+
+\emph{CMA-055-1} & \emph{DOA INAER} & \emph{CMA055-MID} & \emph{issue 1
+dated 20-04-2006} \\
+\hline
+\emph{ELT}
+
+\emph{CMA-200-1} & \emph{DOA INAER} & \emph{CMA200-IM} & \emph{issue 0
+dated 04-02-2009} \\
+\hline
+
+\emph{VHF Teltronic P2500}
+
+\emph{CMA-052} & \emph{DOA INAER} & \emph{CMA052-MID} & \emph{issue 0
+dated 26-09-2005} \\
+\hline
+\emph{Bandeja de equipos}
+
+\emph{INAER 235} & \emph{DOA INAER} & \emph{INAER-235ICA} & \emph{issue
+0 dated 12-08-2009} \\
+\hline
+\emph{Cabin heater} & \emph{Paravion} & \emph{PR-206H-906M} &
+\emph{issue L dated 04-06-2009} \\
+\hline
+\emph{Facet kit} & \emph{Purolator} & \emph{E-922}
+
+\emph{FMS} & \emph{issue J dated 08-11-2007}
+
+\emph{issue 5 dated 11-12-1992} \\
+\hline
+\emph{Van Horn T/R Blades} & \emph{Van Horn} & \emph{VMM-206-301} &
+\emph{issue A dated 26-05-2021} \\
+\hline
+\emph{Battery Lead acid -- Sealed} & \emph{Concorde} & \emph{5-0171} &
+\emph{issue Q dated 04-12-2018} \\
+\hline
+
+\end{longtable}
+
+\newpage
+
+\hypertarget{responsabilidades-y-procedimientos}{%
+\section{RESPONSABILIDADES Y
+PROCEDIMIENTOS}\label{responsabilidades-y-procedimientos}}
+
+\hypertarget{responsabilidades-del-propietario-operador}{%
+\subsection{Responsabilidades del Propietario /
+Operador}\label{responsabilidades-del-propietario-operador}}
+
+El propietario / operador es el responsable de la aeronavegabilidad
+continuada de la aeronave de acuerdo con el punto M.A.201 de la parte M.
+
+Cuando el propietario / operador contrate una organización de gestión
+del mantenimiento de la aeronavegabilidad (CAMO) para gestionar la
+aeronavegabilidad continuada de la aeronave, la responsabilidad pasa a
+dicha organización.
+
+\hypertarget{certificado-de-aptitud-para-el-servicio-crs}{%
+\subsection{Certificado de aptitud para el servicio
+(CRS)}\label{certificado-de-aptitud-para-el-servicio-crs}}
+
+La realización de cualquier tarea de mantenimiento o inspección
+contenida en este Programa de mantenimiento se registrará en el registro
+de mantenimiento de la aeronavegabilidad de la aeronave, junto con el
+correspondiente certificado de aptitud para el servicio (CRS) emitido
+por el personal certificador de acuerdo con la Parte 145.
+
+\hypertarget{responsabilidad-del-personal-certificador}{%
+\subsection{Responsabilidad del personal
+certificador}\label{responsabilidad-del-personal-certificador}}
+
+El personal certificador debe usar sus habilidades técnicas y su
+criterio para determinar el nivel de inspección requerido, así como
+otros aspectos que pudieran afectar a la aeronavegabilidad de la
+aeronave.
+
+El personal certificador es responsable de registrar, en el registro de
+aeronavegabilidad de la aeronave o en la hoja de trabajo, cualquier
+defecto, deficiencia o mantenimiento adicional requerido, resultante de
+la implementación de este Programa de mantenimiento, así como la emisión
+del certificado de aptitud para el servicio.
+
+\hypertarget{realizaciuxf3n-del-mantenimiento}{%
+\subsection{Realización del
+mantenimiento}\label{realizaciuxf3n-del-mantenimiento}}
+
+Todo el mantenimiento se realizará de acuerdo con los métodos, técnicas,
+normas e instrucciones especificados en el punto M.A.402 de la Parte M.
+
+\hypertarget{section-2}{%
+\subsection*{}\label{section-2}}
+\addcontentsline{toc}{subsection}{}
+
+\newpage
+\hypertarget{definiciones}{%
+\subsection{Definiciones}\label{definiciones}}
+
+\textbf{\ul{Condition}} - The state of an item compared to a known
+standard.
+
+\textbf{\ul{Damage}} - Physical deterioration of a component.
+
+\textbf{\ul{Discard}} - Reject a component that has damage that cannot
+be repaired. To permanently remove from service.
+
+\textbf{\ul{Inspección detallada}} \emph{(Detailed inspection)}
+
+Examen intensivo de un ítem específico, instalación ó conjunto para
+detectar daños, fallos ó irregularidades. La luz disponible es
+normalmente complementada con fuentes directas de luz de la intensidad
+apropiada. Pueden ser necesarias otras ayudas a la inspección como
+espejos, lupas, etc. Puede requerir la limpieza de las superficies y
+procedimientos de acceso complicados.
+
+\textbf{\ul{Inspección especial detallada}} (Inspection -- Special
+Detailed\emph{)}
+
+Examen intensivo de un ítem específico, instalación ó conjunto para
+detectar daños, fallos ó irregularidad. El examen probablemente conlleva
+el uso extensivo de técnicas especiales de inspección y/ó equipo. Puede
+requerir limpieza compleja y considerable acceso o desmontaje.
+
+\textbf{\ul{Inspección visual}} \emph{(Visual check)}
+
+Examen para determinar que un ítem está satisfaciendo su propósito
+previsto. No requiere tolerancias cuantitativas. Es una tarea en busca
+de fallos.
+
+\textbf{\ul{Inspección visual general}} \emph{(Inspection General
+Visual)}
+
+Examen visual de una zona interna ó externa, instalación ó conjunto para
+detectar daños obvios, fallos ó irregularidad. La inspección se realiza
+dentro de una distancia en que se pueda tocar la superficie a
+inspeccionar a menos que se especifique otra cosa. Puede ser necesario
+un espejo para acceder visualmente a todas las superficies del área de
+inspección. La inspección se hace bajo condiciones normales de luz tales
+como luz del día, iluminación del hangar, linterna ó lámparas y puede
+requerir desmontar ó abrir paneles y puertas. Pueden ser necesarias
+plataformas y escaleras para aproximarse al área a inspeccionar.
+
+\textbf{\ul{Lubricación y servicio}} \emph{(Service / Lubrication)}
+
+Cualquier acto de lubricación o servicio con el propósito de mantener
+las capacidades inherentes del diseño.
+
+\textbf{\ul{Maintenance}} - The servicing and/or the repair of a
+helicopter, a system, or a component that keeps it serviceable.
+
+\textbf{\ul{Non-scheduled inspection}} - An inspection that has not been
+planned.
+
+\textbf{\ul{Operating time}} - The time that must be recorded in the
+historical record sheets or in the helicopter logs. The operating time
+is specified as:
+
+\newpage
+
+\textbf{\ul{Time in service}}
+
+\begin{quote}
+The time from the moment the helicopter leaves the ground until it
+touches the ground at the next point of landing. The time when the
+helicopter is on the ground, with the engine and the rotor turning is
+not included.
+\end{quote}
+
+\textbf{\ul{Calendar time}}
+
+\begin{quote}
+The elapsed time: it starts on the day the inspection is completed, the
+component is installed, or the rotor is turned for the first time and
+ends on the day that the time limit expires. Calendar time is
+continuous. Calendar time does not stop when you remove a component, put
+the helicopter in storage, etc.
+\end{quote}
+
+\textbf{\ul{Periodic inspections}} - An inspection wich is repeated at
+equal time intervals.
+
+\textbf{\ul{Preventive maintenance}} - To do small maintenance action(s)
+on a regular basis to prevent non-scheduled maintenance.
+
+\textbf{\ul{Progressive inspection}} - A scheduled inspection that is
+divided into smaller segments. Ths makes the best use of the timeand the
+resources available.
+
+\textbf{\ul{Prueba funcional}} \emph{(Functional Check)}
+
+Prueba cuantitativa para verificar si una ó más funciones de un ítem se
+comportan dentro de límites especificados.
+
+\textbf{\ul{Prueba operacional}} \emph{(Operational check)}
+
+Tarea para determinar si un ítem satisface el propósito para el que está
+pensado. No requiere medidas cuantitativas. Es una tarea en busca de
+fallos.
+
+\textbf{\ul{Restauración}} \emph{(Restoration)}
+
+Trabajo necesario para devolver el ítem a un estándar específico. La
+restauración puede variar de la limpieza ó cambio de algunas piezas
+hasta un reacondicionamiento completo (overhaul).
+
+\textbf{\ul{Security}} -- The presence of attaching parts that are
+properly tightened or appear to be, and he presence of properly
+installed (as required) locking devices such as lockwire, cotter pins,
+or other.
+
+\textbf{\ul{Standard}}- A specified rule or measure that you use to find
+the condition of a component.
+
+\textbf{\ul{Tarea de mantenimiento}} (\emph{Task maintenance)}
+
+Acción ó conjunto de acciones requerido para alcanzar el resultado
+deseado que restablece ó mantiene un ítem en condiciones útiles,
+incluyendo el examen y determinación de su estado.
+\newpage
+
+\hypertarget{intervalos-de-inspecciuxf3n}{%
+\section{\texorpdfstring{INTERVALOS DE INSPECCIÓN
+}{INTERVALOS DE INSPECCIÓN }}\label{intervalos-de-inspecciuxf3n}}
+
+\hypertarget{ampliaciones-a-los-intervalos-de-inspecciuxf3n-tareas-de-mantenimiento}{%
+\subsection{Ampliaciones a los intervalos de inspección / tareas de
+mantenimiento}\label{ampliaciones-a-los-intervalos-de-inspecciuxf3n-tareas-de-mantenimiento}}
+
+\hypertarget{extensiuxf3n-tipo-a-tareas-de-aeronave-bht-206l4-mm}{%
+\subsubsection{\texorpdfstring{\emph{Extensión tipo A:} Tareas de
+aeronave (\emph{BHT-206L4-MM)}
+}{Extensión tipo A: Tareas de aeronave (BHT-206L4-MM) }}\label{extensiuxf3n-tipo-a-tareas-de-aeronave-bht-206l4-mm}}
+
+\begin{quote}
+\textbf{Tareas de mantenimiento \ul{distintas} de} límites de vida
+certificada (certified life limitations) y Directivas de
+Aeronavegabilidad: \ul{10\% o hasta un máximo de 300h/6m, lo que sea
+menor}.
+
+En caso de requerir una ampliación de intervalos de inspección/
+mantenimiento superior a las 300h/6meses, ésta deberá estar
+explícitamente autorizada por Bell Product Support y en ningún caso será
+superior al 10\% del intervalo inicial.
+
+Las ampliaciones no son acumulativas
+\end{quote}
+
+\hypertarget{extensiuxf3n-tipo-b-tareas-de-motor-y-modificaciones-ref.-aesa-g-dsm-pmto-04}{%
+\subsubsection{\texorpdfstring{\emph{Extensión tipo B:} Tareas de motor
+y modificaciones (ref. \emph{AESA
+G-DSM-PMTO-04)}}{Extensión tipo B: Tareas de motor y modificaciones (ref. AESA G-DSM-PMTO-04)}}\label{extensiuxf3n-tipo-b-tareas-de-motor-y-modificaciones-ref.-aesa-g-dsm-pmto-04}}
+
+\begin{quote}
+\textbf{Tareas de mantenimiento \ul{distintas} de:}
+\end{quote}
+
+\begin{itemize}
+\item
+  Componentes sujetos a vida límite certificada.
+\item
+  Directivas de Aeronavegabilidad
+\item
+  Tareas del programa de mantenimiento que hayan sido calificadas como
+  ``no ampliables'' por el titular del certificado de tipo.
+\item
+  Requisitos de certificación relativos al mantenimiento.
+\end{itemize}
+
+\begin{quote}
+La ampliación de intervalos de inspección / mantenimiento no será
+utilizada como herramienta de planificación del mantenimiento sino como
+un método excepcional de permitir la operación de la aeronave hasta la
+realización de la inspección.
+
+La ampliación de intervalos se realizará de acuerdo con el procedimiento
+establecido en el CAME de Rotorsun:
+
+\newpage
+
+La ampliación puntual máxima permitida será:
+\end{quote}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2947}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3081}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3971}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+Tareas controladas por:
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Intervalo de tarea
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ampliación
+\end{minipage} \\
+\hline
+
+
+\multirow{2}{*}{Horas} & Igual o inferior a 5000h & 10\% \\
+\cline{2-3}
+& Superior a 5000h & 500h \\
+\hline
+\multirow{3}{*}{Calendario} & Igual o inferior a 1 año & 10\% o 1 mes
+(lo que sea menor) \\
+\cline{2-3}
+& Entre 1 y 3 años & 2 meses \\
+\cline{2-3}
+& Superior a 3 años & 3 meses \\
+\hline
+\multirow{2}{*}{Aterrizajes/ciclos} & Igual o inferior a 5000 & 5\% \\
+\cline{2-3}
+& Superior a 5000 & 250 \\
+\hline
+Varios límites & \multicolumn{2}{l|@{}}{%
+Se utilizará el límite más restrictivo} \\
+\hline
+\end{longtable}
+
+\begin{quote}
+El primer 50\% de los valores de ampliación permitidos podrá ser
+autorizado por la organización de gestión del mantenimiento de la
+aeronavegabilidad (CAMO) de acuerdo con el procedimiento de ampliación
+de intervalos \emph{RTS CAME 1.2.4} aprobado por AESA.
+
+El segundo 50\% deberá ser solicitado y aprobado por AESA con
+anterioridad a su realización.
+\end{quote}
+
+\hypertarget{section-4}{%
+\subsection*{}\label{section-4}}
+\addcontentsline{toc}{subsection}{}
+
+\hypertarget{section-5}{%
+\subsection*{}\label{section-5}}
+\addcontentsline{toc}{subsection}{}
+
+\hypertarget{intervalos-de-inspecciuxf3n-1}{%
+\subsection{Intervalos de
+inspección}\label{intervalos-de-inspecciuxf3n-1}}
+
+Debido a la operación de las aeronaves (SPO y/o LCI) no es posible
+definir una utilización de horas anual, no obstante, el fabricante ya
+contempla esta posibilidad en su manual de mantenimiento y tiene
+definidos tiempos de calendario en las inspecciones programadas tal y
+como se recoge en el presente documento
+
+El fabricante \emph{Bell Helicopter Textron} ofrece cuatro tipos de
+Inspecciones para el modelo B206L4: dos Programas de Inspección
+periódica y dos Programa de Inspección Progresiva. Pueden llevarse a
+cabo todos los modelos de mantenimiento en cada aeronave, pero una vez
+que una aeronave ha empezado con un modelo, éste no puede ser sustituido
+por el otro, salvo siguiendo las condiciones especificadas en el
+capítulo 5, apartado 05-00-00 del Maintanace Manual. \ul{Rotorsun ha
+adoptado el Mantenimiento tipo ``Periódico de 100h'' para toda su flota
+de Bell B206L4, y el presente Programa refleja dicha elección}.
+
+El mantenimiento de todos aquellos equipos o sistemas instalados en las
+aeronaves que se hayan añadido posteriormente a la configuración básica
+de la misma, serán mantenidos de acuerdo con las indicaciones
+establecidas en los correspondientes Boletines de Ingeniería,
+Instrucciones de Servicio, Manuales, etc., relacionados con el
+mencionado equipo o sistema.
+
+En este apartado se indica la relación de todas las inspecciones de
+mantenimiento requeridas (incluyendo la inspección prevuelo) y sus
+intervalos.
+
+\hypertarget{section-6}{%
+\subsection*{}\label{section-6}}
+\addcontentsline{toc}{subsection}{}
+\newgeometry{left=2cm, right=2cm}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0035}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0034}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1820}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1698}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1132}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2264}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.3018}}@{}}
+
+\multicolumn{7}{@{}l@{}}{%
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Helicopter}
+\end{minipage}} \\
+& & type/variant: & Bell 206 L4 & & TCDS: & EASA IM.R.512 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2643}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2453}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1887}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3018}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Issued by}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document no}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{date of issue, approval status, revision status *}
+\end{minipage} \\
+\hline
+\emph{Maintenance Manual} & \emph{Bell Helicopter} & \emph{BHT-206L4-MM}
+& \fontsize{6}{5}\selectfont{issue 26 dated 30-09-2022 and subsequent} \\
+\hline
+\end{longtable}
+
+
+\begin{longtable}[]{@{}|
+  >{\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4073}}|
+  >{\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1678}}|
+  >{\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1960}}|
+  >{\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1127}}|
+  >{\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1162}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{task}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{interval}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{extensión\textsuperscript{1}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Incluida en inspeccion}
+\end{minipage} \\
+\hline
+
+\multicolumn{5}{|l|}{\emph{\textbf{Limitation Inspections}}}\\
+\hline
+
+\emph{Tailboom upper left attachment fitting} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 4} & \emph{110h} & \emph{N/A} & \emph{Anexo 3} \\
+\hline
+
+\multicolumn{5}{|l|}{\emph{\textbf{Scheduled Inspections}}}\\
+\hline
+
+\emph{100-hoursairframe periodic inspection} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{100h/12m} & \emph{Tipo A} & \emph{Anexo 3} \\
+\hline
+
+\emph{300h inspection} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{300h} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{1200h inspection}
+
+\emph{(Cyclic control stick \& T/R control tube)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{1200h} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{Weekly inspection} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{7d cuando opere bajo condiciones adversas} &
+\emph{Tipo A} & \emph{Anexo 2} \\
+\hline
+
+\emph{12m inspection} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{12m} & \emph{Tipo A} & \emph{Anexo 3} \\
+\hline
+
+\emph{12m component operation}
+
+\emph{(M/R Mast)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{12m} & \emph{Tipo A} & \emph{Anexo 3} \\
+\hline
+
+\emph{24m inspection} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{24m} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{\st{60m inspection}} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{\st{n/a por p/n rueda libre}} & \emph{Tipo A} &
+\emph{-} \\
+\hline
+
+\emph{300h/12m inspection}
+
+\emph{(Battery)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{300h/12m} & \emph{Tipo A} & \emph{Anexo 3} \\
+\hline
+
+\emph{600h/12m component operation}
+
+\emph{(Electrical)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{600h/12m} & \emph{Tipo A} & \emph{Anexo 3} \\
+\hline
+
+\emph{1200h component operation}
+
+\emph{(M/R hub)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{1200h} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{1500h component operation}
+
+\emph{(M/R mast)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{1500h} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{2250h/60m component operation}
+
+\emph{(Transmission)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{2250h/60m} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\emph{3000h component operation}
+
+\emph{(T/R Gearbox)} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{3000h} & \emph{Tipo A} & \emph{Anexo 5} \\
+\hline
+
+\end{longtable}
+
+
+\textsuperscript{1}Extensiones permitidas de acuerdo con el apartado 5.1
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4485}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1734}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1228}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0928}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0626}}|@{}}
+\hline
+\multicolumn{5}{|l|}{\emph{\textbf{Special Inspections}}}\\
+\hline
+
+\emph{After fuel system maintenance or change} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{As required} & \emph{Tipo A} & \emph{Anexo
+5} \\
+\hline
+\emph{1-5 hours of flight after each installation} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{1-5h after install.} & \emph{Tipo A} &
+\emph{Anexo 5} \\
+\hline
+\emph{3-8 hours of flight after each installation} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{3-8h after install.} & \emph{Tipo A} &
+\emph{Anexo 5} \\
+\hline
+\emph{10-25 hours of flight after each installation} &
+\emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{10-25h after install.} & \emph{Tipo A} &
+\emph{Anexo 5} \\
+\hline
+\emph{100 Hours After Installation} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{100h after Install} & \emph{Tipo A} &
+\emph{Anexo 5} \\
+\hline
+\emph{Freewheel lubrication system} & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & \emph{100h after Install} & \emph{Tipo A} &
+\emph{Anexo 5} \\
+\hline
+\multicolumn{5}{|l|}{\textbf{Conditional Inspections}}\\
+\hline
+Hard landing & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Sudden stoppage/acceleration -- Main rotor & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Sudden stoppage/acceleration -- Tail rotor & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Overspeed M/R -- 114\% or greater & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Overtorque & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Engine compressor stall or surge & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Lightning strike & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Engine overtemp & \emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+Strike impact to Auxiliary Finlets by Main Rotor Blades &
+\emph{BHT-206L4-MM}
+
+\emph{Chapter 5} & After the event & N/A & \\
+\hline
+\end{longtable}
+
+\textsuperscript{1}Extensiones permitidas de acuerdo con el apartado 5.1
+
+\newpage
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0034}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0910}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1698}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1132}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2264}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.3018}}@{}}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Engine}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+type:
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RR 250 C30
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TCDS:
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+EASA IM.E052
+\end{minipage} \\
+\end{longtable}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2643}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2454}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1886}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3018}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Issued by}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document no}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{date of issue, approval status, revision status *}
+\end{minipage} \\
+\hline
+\emph{Operation \& Maintenance Manual} & \emph{Rolls Royce} &
+\emph{14W2} & \fontsize{7}{5}\selectfont\emph{issue 26 dated 15-11-2019 and subsequent} \\
+\hline
+\end{longtable}
+
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2635}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3030}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2034}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1140}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1161}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{task}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{interval}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{extensión\textsuperscript{1}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Incluida en inspeccion}
+\end{minipage} \\
+\hline
+
+\multicolumn{5}{|l|}{{\textbf{Scheduled Inspections:}}}\\
+\hline
+150 Hours/12m & RR O\&MM Chapter 72-00-00
+
+Table 607 Inspection checksheet & 150h/12m & Tipo B & \emph{Anexo 3} \\
+\hline
+300 Hours/12m & RR O\&MM Chapter 72-00-00
+
+Table 607 Inspection checksheet & 300h/12m & Tipo B & \emph{Anexo 4} \\
+\hline
+600h & RR O\&MM Chapter 72-00-00
+
+Table 607 Inspection checksheet & 600h & Tipo B & \emph{Anexo 5} \\
+\hline
+2000h & RR O\&MM Chapter 72-00-00
+
+Table 607 Inspection checksheet & 2000 Hours & Tipo B & \emph{Anexo
+5} \\
+\hline
+\multicolumn{5}{|l|}{\textbf{Special Inspections}}\\
+\hline
+Hard landing & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Sudden stoppage of rotor & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Foreing object damage & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Operation with inlet restricted & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Engine submerged & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Overtemperature operation & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Hot start & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Oil temperature limit exceeded & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Engine operated more thatn 30 sec without oil pressure & RR O\&MM
+Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Oil contamination & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Installed engine inactive more thatn 45 days, preserve fuel and oil
+systems & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Lightning strike inspection & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+High engine compartment temperature & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A & \\
+\hline
+Compressor on condition inspection & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & Anytime the impeller is removed & N/A
+& \\
+\hline
+Power and accessory gearbox on condition inspection & RR O\&MM Chapter
+72-00-00
+
+Table 608 Special inspection & Anytime the housing is separated from the
+cover & N/A & \\
+\hline
+Power and accessory gearbox cover on condition inspection & RR O\&MM
+Chapter 72-00-00
+
+Table 608 Special inspection & Anytime the gearbox is disassembled &
+N/A & \\
+\hline
+Outer combustion case on condition inspection & RR O\&MM Chapter
+72-00-00
+
+Table 608 Special inspection & Anytime the outer case is separated from
+the engine & N/A &\\
+\hline
+Oil system inspection after 50h of new/repaired engine & RR O\&MM
+Chapter 72-00-00
+
+Table 608 Special inspection & 50h after installing a new or repaired
+engine & N/A &\\
+\hline
+Fuel filter bypass & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A &\\
+\hline
+Replacement fuel pump and/or fuel filter or fuel system connections
+being loosed & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A &\\
+\hline
+Fuel system contamination (microbiologicals) & RR O\&MM Chapter 72-00-00
+
+Table 608 Special inspection & As required & N/A &\\
+\hline
+\end{longtable}
+
+\begin{quote}
+\textsuperscript{1}Extensiones permitidas de acuerdo con el apartado 5.1
+\end{quote}
+
+\newpage
+
+\textbf{Components}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2642}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2076}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2264}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3018}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{component}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{issued by}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{date of issue, approval status, revision status *}
+\end{minipage} \\
+\hline
+\emph{Aircraft components} & \emph{Bell Helicopter} &
+\emph{BHT-206L4-MM} & \emph{issue 26 dated 30-09-\/-2022} \\
+\emph{Engine assy} & \emph{Rolls Royce} & \emph{14W2} & \emph{issue 26
+dated 15-11-2019 and subsequent} \\
+\hline
+\end{longtable}
+
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1032}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4246}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1824}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1450}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1448}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{task}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{component}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{interval}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{extensión}
+\end{minipage} \\
+\hline
+
+\emph{Overhaul} & \emph{Swashplate \& support}
+
+\emph{206-010-450-101 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{4800h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{M/R Hub assy}
+
+\emph{206-011-100-105 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{2400h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Transmission}
+
+\emph{206-040-004-115} & \emph{BHT-206L4-MM Ch. 5} & \emph{4500h} &
+\emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Main Rotor Mast}
+
+\emph{206-040-014-107 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{3000h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Input Driveshaft}
+
+\emph{206-340-300-101/-105} & \emph{BHT-206L4-MM Ch. 5} & \emph{First
+5000h}
+
+\emph{2500h thereafter} & \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Freewheel}
+
+\emph{406-040-500-113} & \emph{BHT-206L4-MM Ch. 5} & \emph{3000h} &
+\emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Tail Rotor Hub Assy}
+
+\emph{206-011-810-139 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{2500h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Tail Rotor Gearbox}
+
+\emph{206-040-402-101 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{6000h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Hydraulic servo actuator}
+
+\emph{206-076-062-101 \& sub} & \emph{BHT-206L4-MM Ch. 5} & \emph{3600h}
+& \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Starter} & \emph{BHT-206L4-MM Ch. 5} &
+\emph{1000h} & \emph{Tipo A} \\
+\hline
+\emph{Overhaul} & \emph{Turbine} & \emph{14W2 72-00-00 table 18} &
+\emph{2000h} & \emph{Tipo B} \\
+\hline
+\emph{Overhaul} & \emph{Fuel pump (Agrotech)} & \emph{14W2 72-00-00
+table 18} & \emph{3000h} & \emph{Tipo B} \\
+\hline
+\emph{Overhaul} & \emph{Fuel control (p/n 6898899 and sub)} & \emph{14W2
+72-00-00 table 18} & \emph{2500h} & \emph{Tipo B} \\
+\hline
+\emph{Overhaul} & \emph{Power turbine governor (p/n 23006268 and sub,}
+
+\emph{pn M250-1036 and sub)} & \emph{14W2 72-00-00 table 18} &
+\emph{2000h} & \emph{Tipo B} \\
+\hline
+\emph{Overhaul} & \emph{Fuel Nozzle} & \emph{14W2 72-00-00 table 18} &
+\emph{2000h} & \emph{Tipo B} \\
+\hline
+\emph{Overhaul} & \emph{Compressor Bleed Valve} & \emph{14W2 72-00-00
+table 18} & \emph{1500h} & \emph{Tipo B} \\
+\hline
+\end{longtable}
+
+\textsuperscript{1}Extensiones permitidas de acuerdo con el apartado 5.1  (AMC 1.1.6, 1.1.10, 1.1.11, 1.1.16, 1.1.17, 1.1.20)
+
+
+
+\raggedright\textbf{\hfill\break
+Modificaciones:}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2212}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2786}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2500}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1252}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1250}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{task}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{document}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{interval}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{extensión\textsuperscript{1}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Incluida en inspección}
+\end{minipage} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{High Skid}}}\\
+\hline
+\multirow{2}{*}{\emph{Inspection - skidtube}} &
+\multirow{2}{*}{\emph{AA-01145}} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{100h/6m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 3} \\
+\cline{3-5}
+& &
+\multicolumn{3}{|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.5003} + 4\tabcolsep}|@{}}{%
+\emph{Conditional: rotorstrike, lightning strike, flight through hail,
+hard landing}} \\
+\hline
+\emph{Inspection - crosstube} & \emph{AA-01149} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{300h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Flitestep}}} \\
+\hline
+\emph{Maintenance} & \emph{AA-01161} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Prefligh}
+\item
+  \emph{300h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+
+\emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Cargo mirror}}}\\
+\hline
+\emph{Inspection} & \emph{AA-00121} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{300h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 4} \\
+\hline
+\emph{Conditional inspection} & \emph{AA-00121} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{As required}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Folding maintenance step}}}\\
+\hline
+\emph{Maintenance} & \emph{AA-00127} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Preflight}
+\item
+  \emph{12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+
+\emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Step handle kit}}}\\
+\hline
+\emph{Maintenance} & \emph{AA-00124} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Preflight}
+\item
+  \emph{12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+
+\emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Spacemaker}}}\\
+\hline
+\emph{Inspection} & \emph{AA-88087} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Baggage door ret. strap}}}\\
+\hline
+\emph{Inspection} & \emph{AA-87041} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Tail Rotor Pedal Lockout Kit}}} \\
+\hline
+\emph{Inspection} & \emph{AA-99032} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Daily / Preflight}
+\item
+  \emph{12m}
+\end{itemize}
+\end{minipage} & & \emph{Anexo 1}
+
+\emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Soporte Airfilm Camera}}}\\
+\hline
+\emph{Preflight}
+
+\emph{Removal/ installation} & \emph{G1-206-005}
+
+\emph{AF-G1-006} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Daily}
+\item
+  \emph{As required}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{Anexo 1} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Equipo de limpieza SLAAP}}}\\
+\emph{Inspection} & \emph{INAER.M12/040/25-FMS-2}
+
+\emph{INAER.M12/040/25-ICA-2} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Daily}
+\item
+  \emph{25h}
+\item
+  \emph{12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+
+\emph{Anexo 5}
+
+\emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Radio Sepura}}}\\
+\hline
+\emph{Inspection} & \emph{ICA 109095} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Megafonía}}}\\
+\hline
+\emph{Inspection} & \emph{ICA 109096} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Espumógeno}}}\\
+\hline
+\emph{Inspection} & \emph{ICA 109097} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Bluetooth Parrot}}}\\
+\hline
+\emph{Inspection} & \emph{ICA 109098} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\newpage
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Portable GPS Garmin}}}\\
+\hline
+\emph{Inspection} & \emph{ICA 109155} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4997} + 2\tabcolsep}|}{%
+\emph{\textbf{Dual controls}}}\\
+\hline
+\emph{Removal/ installation} & \emph{206-SI-2024} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{As required}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Particle separator}}}\\
+\hline
+\emph{Visual check, cleaning} &
+\emph{206-SI-2038} &
+\begin{itemize}
+\item
+  \emph{As required}
+\end{itemize}
+& \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Rotor brake}}}\\
+\hline
+\emph{Inspection} &
+\emph{206-SI-2044}
+\emph{B0223-OM} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{600h}
+\item
+  \emph{1200h}
+\item
+  \emph{1800h}
+\item
+  \emph{2400h}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \\
+\hline
+\emph{Overhaul} &
+\emph{206-SI-2044}
+\emph{B0223-OM} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{1800h (Caliper)}
+\item
+  \emph{3000h (Disk)}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Flight instruments}}}\\
+\emph{Maintenance} &
+\emph{206-SI-2047} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{As required}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Cargo hook}}}\\
+\hline
+\emph{Inspection} &
+\emph{FMS 121-036-00}
+
+\emph{122-001-00} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Preflight}
+\item
+\item
+  \emph{100h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+\emph{Anexo 3} \\
+\hline
+\emph{Overhaul} &
+\emph{122-001-00} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{5 years/ 1000h}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Wirestrike}}}\\
+\hline
+\emph{Routine inspection} &
+\emph{ER 80020/W} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{100h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 3} \\
+\hline
+\emph{Special inspection} &
+\emph{ER 80020/W} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{After a wire strike}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Interior Trim panels}}}\\
+\hline
+\emph{Inspection} &
+\emph{ICA-D407-781} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{300h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Apertura Bambi CMA-055-1}}}\\
+\emph{Inspection} &
+\emph{CMA055-MID} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{ELT}}}\\
+\hline
+\emph{Inspection} &
+\multirow{2}{*}{\emph{CMA200-IM}} &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{100h/12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 3} \\
+\hline
+\emph{Retire: Battery} & & 
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{5 years}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{VHF Teltronic P2500}}}\\
+\hline
+\emph{Inspection} &
+\emph{CMA052-MID} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+\emph{n/a}
+\end{quote}
+\end{minipage} & \emph{n/a} & \emph{-} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Bandeja equipos}}}\\
+\hline
+\emph{Inspection} &
+
+\emph{INAER.235ICA} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{12m}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 4} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Cabin heater Paravion}}}\\
+\hline
+\emph{Maintenance} &
+\emph{PR-206H-906M} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{100h}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 5} \\
+\hline
+\newpage
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{%
+\emph{\textbf{Facet kit}}}\\
+\hline
+\emph{Maintenance} &
+\emph{FACET FMS}
+\emph{E-922} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Preflight}
+\item
+  \emph{\st{300h/6m}}
+\end{itemize}
+
+\emph{Incluida en Manual de motor(300h insp \#25 "Service Ol filter")}
+
+\begin{itemize}
+\item
+  \emph{\st{600h}}
+\end{itemize}
+
+\emph{Incluida en Manual de motor (600h insp)}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1} \\
+\hline
+\multicolumn{5}{@{}|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.4940} + 6\tabcolsep}|}{
+\emph{\textbf{Van Horn T/R Blades}}}\\
+\hline
+\emph{Inspection} &
+\emph{VMM-206-301} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{Preflight}
+\item
+  \emph{100h/12m}
+\item
+  \emph{300h}
+\end{itemize}
+\end{minipage} & \emph{Tipo B} & \emph{Anexo 1}
+
+\emph{Anexo 3}
+
+\emph{Anexo 5} \\
+\hline
+\emph{Retire} &
+\emph{VMM-206-301} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \emph{5000h}
+\end{itemize}
+\end{minipage} & \emph{N/A} & \emph{-} \\
+\hline
+\multicolumn{5}{|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.3619} + 4\tabcolsep}|}{\emph{\textbf{Battery Lead acid -- Concorde - Sealed}}}\\
+\hline
+\emph{Scheduled maintenance}
+\emph{A-Used to start Main turbine engines and Operating less than
+1000h/year} & \emph{5-0171} &
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.3619} + 4\tabcolsep}|}{
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \begin{quote}
+  \emph{12m after first install}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Each 6m if capacity \textgreater{} 90\%}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Each 3m if capacity \textless90\%}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Life limit: capacity\textless85\%}
+  \end{quote}
+\end{itemize}
+\end{minipage}} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+1 month
+\end{quote}
+\end{minipage} \\
+\hline
+\emph{Scheduled maintenance}
+\emph{B-Not used to start Main turbine engines and Operating less than
+1000h/year} & \emph{5-0171}&
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.3619} + 4\tabcolsep}|}{%
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{itemize}
+\item
+  \begin{quote}
+  \emph{12m after first install}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Each 12m if capacity \textgreater{} 90\%}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Each 6m if capacity \textless90\%}
+  \end{quote}
+\item
+  \begin{quote}
+  \emph{Life limit: capacity\textless85\%}
+  \end{quote}
+\end{itemize}
+\end{minipage}} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+1 month
+\end{quote}
+\end{minipage} \\
+\hline
+\end{longtable}
+
+\textsuperscript{1}Extensiones permitidas de acuerdo con el apartado 5.1
+\restoregeometry
+
+\newpage
+
+\hypertarget{inspecciuxf3n-prevuelo}{%
+\section{INSPECCIÓN PREVUELO}\label{inspecciuxf3n-prevuelo}}
+
+\hypertarget{inspecciuxf3n-prevuelo-realizada-por-el-piloto}{%
+\subsection{Inspección prevuelo realizada por el
+piloto}\label{inspecciuxf3n-prevuelo-realizada-por-el-piloto}}
+
+La inspección prevuelo se hará de acuerdo con lo indicado en \emph{el
+Anexo I.}
+
+\hypertarget{inspecciuxf3n-prevuelo-realizada-por-personal-de-mantenimiento}{%
+\subsection{Inspección prevuelo realizada por personal de
+mantenimiento}\label{inspecciuxf3n-prevuelo-realizada-por-personal-de-mantenimiento}}
+
+En caso de que el piloto no pueda realizar la inspección prevuelo, ésta
+podrá ser realizada por personal de mantenimiento debidamente
+autorizado. Siempre de acuerdo con lo indicado en \emph{el Anexo I.}
+
+\hypertarget{mantenimiento-programado}{%
+\section{MANTENIMIENTO PROGRAMADO}\label{mantenimiento-programado}}
+
+En este apartado se especifican las tareas de mantenimiento programado
+aplicables a las aeronaves incluidas en este Programa.
+
+\hypertarget{tareas-y-periodos}{%
+\subsection{\texorpdfstring{Tareas y periodos
+}{Tareas y periodos }}\label{tareas-y-periodos}}
+
+Las tareas y periodos de inspección y mantenimiento aplicables a la/s
+aeronave/s, motor/es, hélices y componentes, incluyendo las tareas de
+mantenimiento fuera de fase y las tareas de mantenimiento repetitivas
+derivadas de modificaciones y/o reparaciones, son las incluidas en la
+documentación referenciada a continuación y cuyo extracto se encuentra
+en el Anexo V:
+
+\textbf{\ul{Aeronave}}: BHT-206L4-MM-- Capítulo 5
+
+\textbf{\ul{Motor}}: \emph{Doc.} Rolls-Royce Operation \& Maintenance
+Manual
+
+\textbf{\ul{Modificaciones}}: \emph{Ver capítulo 5 del presente
+documento.}
+
+\hypertarget{peruxedodos-de-inspecciuxf3n-limpieza-engrase-y-lubricaciuxf3n-relleno-ajuste-y-prueba-de-componentes}{%
+\subsection{Períodos de inspección, limpieza, engrase y lubricación,
+relleno, ajuste y prueba de
+componentes}\label{peruxedodos-de-inspecciuxf3n-limpieza-engrase-y-lubricaciuxf3n-relleno-ajuste-y-prueba-de-componentes}}
+
+Los periodos de inspección, limpieza, engrase, lubricación, relleno,
+ajuste y prueba de componentes son los incluidos en la documentación
+referenciada a continuación y cuyo extracto puede comprobarse en el
+Anexo II;
+
+\textbf{\ul{Aeronave}}: BHT-206L4-MM -- Capítulo 12
+
+\textbf{\ul{Motor}}: Rolls-Royce Operation \& Maintenance Manual
+
+\textbf{\ul{Modificaciones}}: \emph{Ver capítulo 5 del presente
+documento.}
+
+\hypertarget{inspecciones-de-envejecimiento-de-sistemas}{%
+\subsection{Inspecciones de envejecimiento de
+sistemas}\label{inspecciones-de-envejecimiento-de-sistemas}}
+
+\emph{No aplicable. En la actualidad ni el Fabricante de la aeronave, ni
+Rotorsun S.L. tienen definida ninguna inspección de envejecimiento de
+los sistemas de la aeronave Bell 206 L4. De la misma manera, tampoco
+tienen definido ningún programa específico de muestreo.}
+
+\hypertarget{programa-de-inspecciuxf3n-estructural}{%
+\subsection{Programa de Inspección
+estructural}\label{programa-de-inspecciuxf3n-estructural}}
+
+Bell Helicopter Textron describe los procedimientos y criterios de
+mantenimiento, reparación y evaluación de daños estructurales en su
+manual BHT-206-SRM-1 a los que Rotorsun S.L. se adhiere. No se
+establecen intervalos programados de inspección estructural por daños, a
+excepción de los que se mencionan en las pautas de inspecciones
+programadas, especiales y condicionales. Por lo tanto, las actuaciones
+estructurales distintas de las programadas se realizarán ``por
+condición''
+
+Lo que sí que refleja Bell Helicopter Textron en su manual
+CSSD-PSE-87-001 es una inspección por corrosión con un intervalo no
+superior a 100h/90 días.
+
+\hypertarget{periodos-de-overhaul-y-sustituciuxf3n-de-partes}{%
+\subsection{Periodos de overhaul y sustitución de
+partes}\label{periodos-de-overhaul-y-sustituciuxf3n-de-partes}}
+
+El listado de parte y elementos sujetos a overhaul o a sustitución, su
+contenido y su intervalo es el incluido en la documentación referenciada
+a continuación y cuyo extracto puede comprobarse en el anexo III;
+
+\textbf{\ul{Aeronave}}: 206L4-MM-- Capítulo 5
+
+\textbf{\ul{Motor}}: Rolls-Royce Operation \& Maintenance Manual--
+Capítulo 72-00-00
+
+\textbf{\ul{Modificaciones}}: \emph{Ver capítulo 3 del presente
+documento.}
+
+\hypertarget{componentes-de-vida-luxedmite-requisitos-de-mantenimiento-de-certificaciuxf3n-cmrs-airworthiness-limitations-y-directivas-de-aeronavegabilidad-ads}{%
+\subsection{Componentes de vida límite, Requisitos de mantenimiento de
+certificación (CMR's), Airworthiness Limitations y Directivas de
+Aeronavegabilidad
+(AD's)}\label{componentes-de-vida-luxedmite-requisitos-de-mantenimiento-de-certificaciuxf3n-cmrs-airworthiness-limitations-y-directivas-de-aeronavegabilidad-ads}}
+
+El listado de componentes de vida límite, CMR's, ALI y Directivas de
+aeronavegabilidad repetitivas, su contenido y su intervalo, es el
+incluido en la documentación referenciada a continuación y cuyo extracto
+puede comprobarse en el anexo IV;
+
+\textbf{\ul{Aeronave}}: 206L4-MM -- Capítulo 4
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3150}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3340}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3510}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{component}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{p/n}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Life}
+\end{minipage} \\
+\hline
+\emph{M/R Trunnion} & \emph{206-011-120-103 \& sub} & \emph{24000
+RIN} \\
+\hline
+\emph{M/R Strap pin} & \emph{206-011-125-001 \& sub} & \emph{1200h} \\
+\hline
+\emph{M/R Grip} & \emph{206-011-132-113 \& sub} & \emph{4800h} \\
+\hline
+\emph{M/R Strap fitting} & \emph{206-011-150-105 \& sub} &
+\emph{2400h} \\
+\hline
+\emph{Latch Bolt} & \emph{206-011-260-101 \& sub} & \emph{1200h} \\
+\hline
+\emph{M/R Blade} & \emph{206-015-001-115 \& sub} & \emph{4000h} \\
+\hline
+\emph{Tension Torsion Strap} & \emph{206-310-004-103 \& sub} &
+\emph{1200h/ 48m} \\
+\hline
+\emph{Lower Cyclic tube} & \emph{206-001-193-001 \& sub} &
+\emph{4800h} \\
+\hline
+\emph{Swashplate support} & \emph{206-010-445-113 \& sub} &
+\emph{14400h} \\
+\hline
+\emph{Collective Idle Link} & \emph{206-010-446-107 \& sub} &
+\emph{14400h} \\
+\hline
+\emph{Collective Lever} & \emph{206-010-447-109 \& sub} &
+\emph{14400h} \\
+\hline
+\emph{Swashplate Collective Sleeve} & \emph{206-010-454-113 \& sub} &
+\emph{14400h} \\
+\hline
+\emph{TRGB duplex bearing} & \emph{206-040-410-101 \& sub} &
+\emph{3000h} \\
+\emph{M/R Mast pole} & \emph{206-040-535-109 \& sub} & \emph{5000h/
+44000 RIN} \\
+\hline
+\emph{T/R Yoke} & \emph{206-011-819-109 \& sub} & \emph{5000h} \\
+\hline
+\emph{TR Blade} & \emph{206-016-201-135 \& sub} & \emph{2500h} \\
+\hline
+\end{longtable}
+
+\textbf{\ul{Motor}}: Rolls-Royce Operation \& Maintenance Manual --
+Capítulo 05-10
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3150}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3340}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3510}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{component}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{p/n}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Life}
+\end{minipage} \\
+\hline
+\emph{Impeller} & \emph{23030976} & \emph{15000h / 25000cyc} \\
+\hline
+\emph{1\textsuperscript{st} stage turbine wheel} & \emph{25053299} &
+\emph{2025h / 3000cyc} \\
+\hline
+\emph{2\textsuperscript{nd} stage turbine wheel} & \emph{23032280} &
+\emph{2025h / 3000cyc} \\
+\hline
+\emph{3\textsuperscript{rd} stage turbine wheel} & \emph{6898663} &
+\emph{4550h / 6000cyc} \\
+\hline
+\emph{4\textsuperscript{th} stage turbine wheel} & \emph{23066744} &
+\emph{4550h / 6000cyc} \\
+\hline
+\end{longtable}
+
+\textbf{\ul{Modificaciones}}: \emph{Ver capítulo 3 del presente
+documento.}
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3150}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3340}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3510}}|@{}}
+\hline
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{component}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{p/n}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Life}
+\end{minipage} \\
+\hline
+\emph{Van Horn T/R Blades} & \emph{2062200-101} & \emph{5000h} \\
+\hline
+\end{longtable}
+
+\textbf{\ul{Listado de AD's repetitivas}}:
+
+\begin{longtable}[]{@{}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1538}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2846}}|
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3116}}|@{}}
+\hline
+\textbf{AD} & \textbf{SB} & \textbf{Component} & \textbf{Intervalo} \\
+\hline
+\textbf{EASA 2004-0009 r3} & & \textbf{Engine C.S. Pipes} &
+\textbf{Repetitiva cada 100h} \\
+\hline
+\textbf{CF-1995-17 r2} & & \textbf{Inspección Crosstubes} &
+\textbf{Repetitiva cada 300h/12m} \\
+\hline
+\textbf{CF-2013-28} & \textbf{TB 206L-95-180 rA} & \textbf{Fuel Cell
+Vent Decal} & \textbf{Repetitiva cada 300h/12m} \\
+\hline
+\textbf{CF-2016-13-01 r1 (part III)} & \textbf{ASB 206L-14-174} &
+\textbf{Freewheel oil supply} & \textbf{Cada vez que se desconecte algún
+elemento del sistema de lubricación de la rueda libre aguas arriba del
+restrictor.}
+
+\textbf{Ver insp. Especial \emph{``Freewhwwl lubrication system''}} \\
+\hline
+\textbf{CF-2022-33} & \textbf{ASB 206L-20-184} & \textbf{Bonded tal
+rotor driveshafts} & \textbf{n/a a EC-JKG} \\
+\hline
+\end{longtable}
+
+\hypertarget{section-7}{%
+\section*{}\label{section-7}}
+\addcontentsline{toc}{section}{}
+
+\end{document}
